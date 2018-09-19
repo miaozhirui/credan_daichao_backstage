@@ -50,8 +50,9 @@ export function fetch(opt) {
             "Content-Type": "application/json;charset=UTF-8"
         }
     }
+    
 
-    opt.url = `http://127.0.0.1:7001${opt.url}`
+    opt.url = `${opt.url}`
 
     let options = Object.assign(defaultParams, opt);
     
