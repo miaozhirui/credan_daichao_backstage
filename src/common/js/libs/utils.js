@@ -56,7 +56,7 @@ export function fetch(opt) {
 
     let options = Object.assign(defaultParams, opt);
     
-    // redirectUrl(options)
+    redirectUrl(options)
 
     axios(options)
         .then(response => {
@@ -104,7 +104,7 @@ export function fetch(opt) {
 
 function redirectUrl(opt) {
 
-    opt.url = `http://localhost:7002${opt.url}`;
+    opt.url = `http://localhost:7001${opt.url}`;
 }
 
 export function isEmail(email) {

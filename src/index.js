@@ -25,12 +25,11 @@ ReactDOM.render(
                         </div>
                         <div>
                             <ul className="nav navbar-nav">
-                                <li><Link to="/">首页</Link></li>
                                 {/*<li><Link to="/user">用户中心</Link></li>*/}
                                 {/*<li><Link to="/profile">个人设置</Link></li>
                                 <li><Back/></li>
                                 */}
-                               <li><Link to="/daichao">贷钞</Link></li>
+                               <li><Link to="/daichao/channelList">贷钞</Link></li>
                             </ul>
                         </div>
                     </div>

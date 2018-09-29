@@ -81,7 +81,6 @@ class addChannel extends Component {
                     <Input />
                   )}
                 </FormItem>
-                
                 <FormItem
                 {...formItemLayout}
                     label="渠道名称"
@@ -113,7 +112,6 @@ class addChannel extends Component {
                     )
                 }
                 </FormItem>
-
                 <FormItem {...tailFormItemLayout}>
                     <Button type="primary" htmlType="submit">添加</Button>
                 </FormItem>

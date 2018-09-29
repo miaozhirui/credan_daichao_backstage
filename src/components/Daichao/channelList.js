@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { utils } from 'libs';
 import { Table, Button } from 'antd';
+import url from 'url';
 
 
 
@@ -26,12 +27,39 @@ export default class ChannelList extends Component {
                 width: "20%"
             },
             {
-                title: 'url',
+                title: '页面',
                 dataIndex: 'url',
                 width: "40%",
                 render(param){
                     
-                    return <a href={param} target="_blank">{param}</a>
+                    let data = url.parse(param,true);
+                    
+                    let pages = [
+
+                        {
+                            url:'register.html',
+                            name:"注册"
+                        },
+                        {
+                            url:'download.html',
+                            name:"下载"
+                        }
+                    ]
+                    
+                    let partUrl = data.pathname.slice(0,data.pathname.indexOf(data.pathname.split('/').pop()));
+                  
+                    return (
+                        <div>
+                            {
+                                pages.map((item, index) => {
+                                        
+                                    let url = `${data.protocol}//${data.host}${partUrl}${item.url}${data.search}`;
+
+                                    return <Button type="default" style={{marginRight:"5px"}}><a href={url} target="_blank" key={index}>{item.name}</a></Button>
+                                })
+                            }
+                        </div>
+                    )
                 }
             },
             {
