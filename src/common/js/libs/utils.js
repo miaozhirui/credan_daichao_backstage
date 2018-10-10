@@ -56,7 +56,7 @@ export function fetch(opt) {
 
     let options = Object.assign(defaultParams, opt);
     
-    redirectUrl(options)
+    // redirectUrl(options)
 
     axios(options)
         .then(response => {
