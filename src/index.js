@@ -3,7 +3,6 @@ import ReactDOM from 'react-dom';
 // import {HashRouter as Router, Route, Link} from 'react-router-dom';
 import {HashRouter as Router, Route, Link, Switch, Redirect, Back} from './react-router-dom';
 import Home from './components/Home';
-import User from './components/User/User';
 import Profile from './components/Profile'
 import Protected from './components/Protected';
 import Daichao from './components/Daichao/Daichao';
@@ -38,8 +37,6 @@ ReactDOM.render(
             </nav>
             <Switch>
                 <Route exact path="/" component={Home}></Route>
-                <Route path="/user" component={User}></Route>
-                <Route path="/user/:id" component={User}></Route>
                 <Route path="/daichao" component={Daichao}></Route>
                 
                 <Protected path="/profile" component={Profile}></Protected>
