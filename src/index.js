@@ -41,6 +41,7 @@ ReactDOM.render(
                 <Route path="/user" component={User}></Route>
                 <Route path="/user/:id" component={User}></Route>
                 <Route path="/daichao" component={Daichao}></Route>
+                
                 <Protected path="/profile" component={Profile}></Protected>
                 <Redirect to="/" />
             </Switch>

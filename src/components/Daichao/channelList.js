@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { utils } from 'libs';
-import { Table, Button } from 'antd';
+import { Table, Button, Modal, message } from 'antd';
 import url from 'url';
 
 
@@ -70,6 +70,7 @@ export default class ChannelList extends Component {
                     return (
                         <div>
                             <Button type="danger" onClick={()=>this.deleteChannel(params._id)}>删除</Button>
+                            <Button style={{marginLeft:"5px"}} type="primary" onClick={()=>this.editChannel(params._id)}>编辑</Button>
                         </div>
                     )
                 }
@@ -84,20 +85,35 @@ export default class ChannelList extends Component {
 
     deleteChannel(id) {
 
-        let promise = utils.fetch({
+        Modal.confirm({
+            title:"确认删除吗？",
+            onOk:() => {
+
+                let promise = utils.fetch({
             
-            method:'get',
-            url: `/api/daichao/deleteChannel?channelSid=${id}`
+                    method:'get',
+                    url: `/api/daichao/deleteChannel?channelSid=${id}`
+                })
+        
+                promise.then(res => {
+        
+                   this.setState({
+        
+                        data: this.state.data.filter(item=> item._id != id)
+                   },() => {
+
+                        message.success("删除成功");
+                   })
+                })
+            }
         })
+        
 
-        promise.then(res => {
+    }
 
-           this.setState({
+    editChannel(id) {
 
-                data: this.state.data.filter(item=> item._id != id)
-           })
-        })
-
+        this.props.history.push(`/daichao/editChannel/${id}`);
     }
 
     fetch(params = {}) {

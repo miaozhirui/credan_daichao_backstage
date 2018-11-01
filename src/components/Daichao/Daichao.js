@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import {Link, Route } from '../../react-router-dom';
 import addChannel from './addChannel';
 import channelList from './channelList';
+import editChannel from './editChannel';
 
 
 export default class Daichao extends Component {
@@ -22,6 +23,7 @@ export default class Daichao extends Component {
                 <div className="col-md-10">
                     <Route path="/daichao/addChannel" component={addChannel}></Route>
                     <Route path="/daichao/channelList" component={channelList}></Route>
+                    <Route path="/daichao/editChannel/:id" component={editChannel}></Route>
                 </div>
             </div>
             )
